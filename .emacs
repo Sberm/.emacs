@@ -1,5 +1,5 @@
 ;; toggle word wrap
-;; (global-set-key (kbd "C-w") 'toggle-truncate-lines)
+(global-set-key (kbd "C-w") 'toggle-truncate-lines)
 
 ;; multi-cursor
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
