@@ -1,32 +1,14 @@
-;; toggle word wrap
-(global-set-key (kbd "C-w") 'toggle-truncate-lines)
-
-;; multi-cursor
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; line num
-(global-display-line-numbers-mode)
+;; package: expand-region, slime, undo-tree
 
 ;; lucius theme
 (load-theme 'lucius t)
 
-;; start coding style
-
-;; smart tab
-;; (setq-default indent-tabs-mode nil)
-;; (add-hook 'c-mode-common-hook
-;;           (lambda () (setq indent-tabs-mode t)))
-
+;; number of tab(\t) inserted each time tab key is pressed = (c-basic-offset / tab-width)
 (setq-default c-default-style "linux")
 (setq-default c-basic-offset 4
                   tab-width 4
                   indent-tabs-mode t)
-;; number of tab(\t) inserted each time tab key is pressed = (c-basic-offset / tab-width)
 
-;; end coding style
 
 ;; grep default command
 (setq grep-command
@@ -35,14 +17,7 @@
 ;; undo文件位置
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
-;; 字体
-;; (set-face-attribute 'default nil :font (font-spec :family "汉仪中圆 简" :size 13))
-
-;; fonts
-;; (add-to-list 'default-frame-alist
-;;              '(font . "汉仪中圆 简-13"))
-
-(set-face-attribute 'default nil :weight 'bold :height 150)
+(set-face-attribute 'default nil :weight 'bold :height 180)
 
 ;; doujin
 (defun doujin()
@@ -52,10 +27,6 @@
 ;; react正常缩进
 (setq web-mode-content-types-alist
   '(("jsx" . "\\.js[x]?\\'")))
-
-;; 解决.emacs文件中文乱码问题:
-;; 为彻底解决问题，最好把当前文件转换为“UTF-8”编码的文件。
-;; 操作：“C-x <RET> f utf-8-dos”，“C-x C-s”
 
 ;; 关闭tramp的Projectile模式
 (setq projectile-mode-line "Projectile")
@@ -72,8 +43,7 @@
 ;; 总是horizontal split
 (setq split-width-threshold 1)
 
-;; (latex-preview-pane-enable)
-;; latex用
+;; latex
 (defun pdf-preview()
   (interactive)
   (latex-preview-pane-mode))
@@ -86,10 +56,6 @@
 (defun daily()
   (interactive)
   (find-file "C:/Users/Sberm/Downloads/daily"))
-
-;; emacs初始窗口大小
-;; (add-to-list 'default-frame-alist '(height . 35))
-;; (add-to-list 'default-frame-alist '(width . 42))
 
 ;; 在另一个窗口打开dired(不知道要不要保留)
 (defun open-dired-other-window()
@@ -115,21 +81,14 @@
 ;; backup文件位置
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-;; (global-font-lock-mode 0)
-
-;; (add-to-list 'default-frame-alist
-;;              '(font . "Monaco-20:bold"))
-
-
-
 ;; 服务器用
 (defun sberm-server()
   (interactive)
-  (find-file "/plinkx:root@sberm.cn:/root"))
+  (find-file "/ssh:root@sberm.cn:/root"))
 
 (defun docs()
   (interactive)
-  (find-file "/plinkx:root@sberm.cn:/root/hw/blog-hw/docs/md"))
+  (find-file "/ssh:root@sberm.cn:/root/hw/blog-hw/docs/md"))
 
 ;; undo tree
 (global-undo-tree-mode)
