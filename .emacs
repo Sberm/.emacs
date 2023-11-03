@@ -1,3 +1,59 @@
+;; sberf quick access
+(defun sberf()
+  (interactive)
+  (find-file "/plinkx:root@sberm.cn:~/hw/sberf/"))
+
+;; insert text
+(defun code-header()
+  (interactive)
+  (insert 
+       "/*-*- tab-width:8;coding:utf-8                                              -*-│\n"
+       "│vi: set net ft=c ts=2 sts=2 sw=2 fenc=utf-8                                :vi│\n"      
+       "╞══════════════════════════════════════════════════════════════════════════════╡\n"
+       "│ Copyright 2023 Howard Chu                                                    │\n"
+       "│                                                                              │\n"
+       "│ Permission to use, copy, modify, and/or distribute this software for         │\n"
+       "│ any purpose with or without fee is hereby granted, provided that the         │\n"
+       "│ above copyright notice and this permission notice appear in all copies.      │\n"
+       "│                                                                              │\n"
+       "│ THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL                │\n"
+       "│ WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED                │\n"
+       "│ WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE             │\n"
+       "│ AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL         │\n"
+       "│ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR        │\n"
+       "│ PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER               │\n"
+       "│ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR             │\n"
+       "│ PERFORMANCE OF THIS SOFTWARE.                                                │\n"
+       "╚─────────────────────────────────────────────────────────────────────────────*/\n"))
+
+
+;; header
+(auto-insert-mode) ;; on
+;; (electric-indent-mode 0) ;; disable auto indentation
+
+(eval-after-load 'autoinsert
+  '(define-auto-insert '("\\.\\(cc\\|cxx\\|cpp\\|c\\)\\'" . "C skeleton")
+     '("place holder"
+       "/*-*- tab-width:8;coding:utf-8                                              -*-│\n"
+       "│vi: set net ft=c ts=2 sts=2 sw=2 fenc=utf-8                                :vi│\n"       
+       "╞══════════════════════════════════════════════════════════════════════════════╡\n"
+       "│ Copyright 2023 Howard Chu                                                    │\n"
+       "│                                                                              │\n"
+       "│ Permission to use, copy, modify, and/or distribute this software for         │\n"
+       "│ any purpose with or without fee is hereby granted, provided that the         │\n"
+       "│ above copyright notice and this permission notice appear in all copies.      │\n"
+       "│                                                                              │\n"
+       "│ THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL                │\n"
+       "│ WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED                │\n"
+       "│ WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE             │\n"
+       "│ AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL         │\n"
+       "│ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR        │\n"
+       "│ PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER               │\n"
+       "│ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR             │\n"
+       "│ PERFORMANCE OF THIS SOFTWARE.                                                │\n"
+       "╚─────────────────────────────────────────────────────────────────────────────*/\n")))
+
+
 ;; toggle word wrap
 ;; (global-set-key (kbd "C-w") 'toggle-truncate-lines)
 
@@ -21,8 +77,8 @@
 ;;           (lambda () (setq indent-tabs-mode t)))
 
 (setq-default c-default-style "linux")
-(setq-default c-basic-offset 4
-                  tab-width 4
+(setq-default c-basic-offset 8
+                  tab-width 8
                   indent-tabs-mode t)
 ;; number of tab(\t) inserted each time tab key is pressed = (c-basic-offset / tab-width)
 
