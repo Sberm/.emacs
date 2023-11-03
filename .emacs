@@ -1,3 +1,6 @@
+;; default truncate lines
+(set-default 'truncate-lines t)
+
 ;; sberf quick access
 (defun sberf()
   (interactive)
@@ -7,7 +10,7 @@
 (defun code-header()
   (interactive)
   (insert 
-       "/*-*- tab-width:8;coding:utf-8                                              -*-│\n"
+       "/*-*- coding:utf-8                                                          -*-│\n"
        "│vi: set net ft=c ts=2 sts=2 sw=2 fenc=utf-8                                :vi│\n"      
        "╞══════════════════════════════════════════════════════════════════════════════╡\n"
        "│ Copyright 2023 Howard Chu                                                    │\n"
@@ -34,7 +37,7 @@
 (eval-after-load 'autoinsert
   '(define-auto-insert '("\\.\\(cc\\|cxx\\|cpp\\|c\\)\\'" . "C skeleton")
      '("place holder"
-       "/*-*- tab-width:8;coding:utf-8                                              -*-│\n"
+       "/*-*- coding:utf-8                                                          -*-│\n"
        "│vi: set net ft=c ts=2 sts=2 sw=2 fenc=utf-8                                :vi│\n"       
        "╞══════════════════════════════════════════════════════════════════════════════╡\n"
        "│ Copyright 2023 Howard Chu                                                    │\n"
